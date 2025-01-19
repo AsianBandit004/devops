@@ -1,5 +1,6 @@
 # Devops
-This is a repo dedicated to my own personal DevOps projects I am working on / currently working on in my home lab and work
+This is a repo dedicated to my personal DevOps projects I am working on / currently working on in my home lab and work.
+I have combined Docker, Portainer, Proxmox, and YAML to put this piece together.
 
 # Media Streaming Stack
 This is an ARR stack I created on docker using the ARR apps (Homarr, Radarr, Sonarr, Jellyfin, Jellyseerr, Jacket, and Transmission)
