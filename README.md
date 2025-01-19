@@ -1,4 +1,4 @@
-# Devops
+# Devops Projects
 This is a repo dedicated to my personal DevOps projects I am working on / currently working on in my home lab and work.
 I have combined Docker, Portainer, Proxmox, and YAML to put this piece together.
 
