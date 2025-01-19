@@ -1,3 +1,7 @@
-Please use Portainer to install Jenkins all you have to do is hit deploy and it should spin up the container 
+Please use Portainer to install Jenkins all you have to do is hit deploy and it should spin up the container:
+
+Checkout this site for installing instructions:
+
+https://docs.portainer.io/start/intro
 
 Once you have the container up you can go to the webpage via http://localip:32771
