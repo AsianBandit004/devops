@@ -1,7 +1,3 @@
-# Devops Projects
-This is a repo dedicated to my personal DevOps projects I am working on / currently working on in my home lab and work.
-I have combined Docker, Portainer, Proxmox, and YAML to put this piece together.
-
 # Media Streaming Stack
 This is an ARR stack I created on docker using the ARR apps (Homarr, Radarr, Sonarr, Jellyfin, Jellyseerr, Jacket, and Transmission)
 With this stack, you're able to request movies and TV shows that you're interested in and automatically have the media distributed to you
