@@ -1,4 +1,4 @@
-###Downloading Stack###
+# Downloading Stack
 
 version: "2.1"
 services:
@@ -33,7 +33,7 @@ services:
       - 51413:51413/udp
     restart: unless-stopped
 
-###Streaming Stack###
+# Streaming Stack
 
 version: "3"
 services:
