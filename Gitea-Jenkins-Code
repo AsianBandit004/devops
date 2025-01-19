@@ -1,0 +1,3 @@
+Please use Portainer to install Jenkins all you have to do is hit deploy and it should spin up the container 
+
+Once you have the container up you can go to the webpage via http://localip:32771
