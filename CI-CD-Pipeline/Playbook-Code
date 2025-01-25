@@ -1,0 +1,7 @@
+---
+- name: Ping the server to check if it is up
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Ping the server
+      ping:
