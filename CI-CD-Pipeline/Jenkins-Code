@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    environment {
+        PLAYBOOK_FILE = 'ping.yml' //Your playbook file here
+        DEPLOY_SERVER = '192.168.100.11' //your IP address of the Ubuntu-Ansible Server Here
+        DEPLOY_PATH = '/var/www/html/index.html' //Your path to your internal website
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Run Ansible Version Check') {
+            steps {
+                script {
+                    sshagent([ 'ubunut-jenkins' ]) { //Your sshagent here you will need the plugin installed on your Jenkins server and have the keys
+                        // Run the playbook with the SSH key using ssh-agent
+                        sh "ansible-playbook -i inventory.ini ${PLAYBOOK_FILE} --ssh-extra-args='-o StrictHostKeyChecking=no'"
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Ansible ping completed successfully!'
+        }
+        failure {
+            echo 'Ansible ping failed!'
+        }
+    }
+}
