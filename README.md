@@ -15,4 +15,4 @@ In this repository, you will find a variety of DevOps applications and tools inc
 
 ## 📂 Repository Structure
 
-The structure of this repository is organized by individual projects and tools, each with its own set of configurations, scripts, and documentation. Here's a general idea:
+The structure of this repository is organized by individual projects and tools, each with its own set of configurations, scripts, and documentation.
