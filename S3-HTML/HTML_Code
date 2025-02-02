@@ -1,0 +1,88 @@
+# Index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website is Working!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 50px;
+            color: #333;
+        }
+        h1 {
+            color: #4CAF50;
+            font-size: 3rem;
+        }
+        p {
+            font-size: 1.5rem;
+            color: #555;
+        }
+        .container {
+            display: inline-block;
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Website is Working! 🎉</h1>
+        <p>Success! Your static site is up and running smoothly 🚀</p>
+    </div>
+</body>
+</html>
+_________________________________________________________________________________________
+
+# Error.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website is Down!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8d7da;
+            text-align: center;
+            padding: 50px;
+            color: #721c24;
+        }
+        h1 {
+            color: #721c24;
+            font-size: 3rem;
+        }
+        p {
+            font-size: 1.5rem;
+            color: #555;
+        }
+        .container {
+            display: inline-block;
+            border: 2px solid #f5c6cb;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .icon {
+            font-size: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="icon">⚠️ Website is Not Working! ⚠️</h1>
+        <p>Oops! Something went wrong, and the website is currently down. Please try again later. 😞</p>
+    </div>
+</body>
+</html>
+
