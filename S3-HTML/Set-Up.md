@@ -40,8 +40,11 @@ Here’s an example of the file structure for your S3 bucket:
 go
 Copy
 / (root)
+
   ├── index.html
+  
   ├── error.html
+  
 ## 🔗 Useful Links
 AWS S3 Documentation 📖
 AWS CloudFront Documentation 📄
