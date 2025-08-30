@@ -1,0 +1,33 @@
+## This is a helpful script to create a simple Windows VM ##
+
+# ====== Windows VM Deployment ======
+
+# 1. Set your variables
+RESOURCE_GROUP="YourResourceGroupName"
+LOCATION="YourAzureRegion"            # Example: eastus, westus2
+VM_NAME="YourWindowsVMName"
+VM_SIZE="YourSKU"                     # Example: Standard_B1s (low cost)
+ADMIN_USER="YourAdminUsername"
+ADMIN_PASSWORD="YourSecurePassword"   # Strong password required
+
+# 2. Create a resource group (if it doesn't exist)
+az group create --name $RESOURCE_GROUP --location $LOCATION
+
+# 3. Create the Windows VM
+az vm create \
+  --resource-group $RESOURCE_GROUP \
+  --name $VM_NAME \
+  --image Win2022Datacenter \
+  --size $VM_SIZE \
+  --admin-username $ADMIN_USER \
+  --admin-password $ADMIN_PASSWORD \
+  --authentication-type password \
+  --public-ip-sku Basic \
+  --tags Owner=YourName Environment=Test
+
+# 4. Open RDP port (optional — only if needed)
+az vm open-port \
+  --resource-group $RESOURCE_GROUP \
+  --name $VM_NAME \
+  --port 3389
+
