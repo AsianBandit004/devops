@@ -1,0 +1,34 @@
+## This is a helpful script to create a simple Linux VM ##
+
+# ====== Linux VM Deployment ======
+
+# 1. Set your variables
+RESOURCE_GROUP="YourResourceGroupName"
+LOCATION="YourAzureRegion"            # Example: eastus, westus2
+VM_NAME="YourLinuxVMName"
+VM_SIZE="YourSKU"                     # Example: Standard_B1s (low cost)
+ADMIN_USER="YourAdminUsername"
+SSH_KEY_PATH="~/.ssh/id_rsa.pub"      # Path to your SSH public key
+
+# 2. Create a resource group (if it doesn't exist)
+az group create --name $RESOURCE_GROUP --location $LOCATION
+
+# 3. Create the Linux VM
+az vm create \
+  --resource-group $RESOURCE_GROUP \
+  --name $VM_NAME \
+  --image UbuntuLTS \
+  --size $VM_SIZE \
+  --admin-username $ADMIN_USER \
+  --ssh-key-values $SSH_KEY_PATH \
+  --authentication-type ssh \
+  --public-ip-sku Basic \
+  --tags Owner=YourName Environment=Test
+
+# 4. Open SSH port (optional — only if needed)
+az vm open-port \
+  --resource-group $RESOURCE_GROUP \
+  --name $VM_NAME \
+  --port 22
+
+
