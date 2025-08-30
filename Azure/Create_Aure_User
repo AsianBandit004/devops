@@ -1,0 +1,20 @@
+az ad user create \
+  --display-name "John Smith" \
+  --user-principal-name "jsmith@YOURDOMAIN.COM" \
+  --password "TempP@ssword123!" \
+  --force-change-password-next-login true
+
+
+
+az ad user show --id "jsmith@YOURDOMAIN.COM"
+
+
+az ad group member list \
+  --group "YOURGROUP" \          
+  --query "[].userPrincipalName" \
+  --output table
+
+
+ az ad group member add \ 
+  --group "YOURGROUP" \
+  --member-id $(az ad user show --id "jsmith@YOURDOMAIN.COM" --query id -o tsv)
