@@ -4,8 +4,11 @@ This directory contains Azure-related DevOps configurations and scripts.
 
 ## Contents
 
-- Coming soon...
+Projects:
+1. Autopilot-ZeroTouch-With-CA
+2. Azure_LogAnalytics_Pipeline
+
+..More to come.....stay tuned!
 
 ## Usage
-
-Instructions will be added as content is developed.
+Please refer to the README files in each project for directions and steps.
