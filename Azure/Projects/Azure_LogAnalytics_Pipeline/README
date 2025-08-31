@@ -20,6 +20,8 @@
 
 ```bash
 az group create -n rg-log-demo -l eastus
+
+
 ```
 
 ---
