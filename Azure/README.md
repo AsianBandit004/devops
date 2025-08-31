@@ -11,4 +11,7 @@ Projects:
 ..More to come.....stay tuned!
 
 ## Usage
-Please refer to the README files in each project for directions and steps.
+Please take a look at the README files in each project for directions and steps.
+
+## Scripts Folder
+Contains a few scripts to generate users or VMs if needed via AZ cli
