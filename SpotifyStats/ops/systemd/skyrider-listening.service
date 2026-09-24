@@ -1,0 +1,26 @@
+[Unit]
+Description=Collect private Skyrider recently played tracks
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=skyrider
+Group=skyrider
+WorkingDirectory=/opt/skyrider
+EnvironmentFile=/etc/skyrider/skyrider.env
+ExecStart=/usr/bin/node server/listening-refresh.mjs
+TimeoutStartSec=5m
+UMask=0077
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/skyrider
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictRealtime=true

@@ -1,0 +1,39 @@
+# Dependencies and generated output
+node_modules/
+dist/
+test-results/
+playwright-report/
+coverage/
+
+# Private configuration and application data
+.env
+.env.*
+!.env.example
+.local/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+
+# Credentials, runtime state, and logs
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.log
+*.pid
+nohup.out
+
+# Local-only production references retained for migration
+/Jenkinsfile
+/Notes.txt
+/startup
+/ops/*.service
+/ops/*.timer
+/ops/*.conf
+
+# Package-manager and operating-system files
+.pnpm-store/
+.npm/
+.DS_Store

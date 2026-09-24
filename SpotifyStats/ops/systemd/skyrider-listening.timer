@@ -1,0 +1,11 @@
+[Unit]
+Description=Collect Skyrider listening diary every two hours
+
+[Timer]
+OnBootSec=10m
+OnUnitActiveSec=2h
+Persistent=true
+Unit=skyrider-listening.service
+
+[Install]
+WantedBy=timers.target

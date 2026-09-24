@@ -1,0 +1,54 @@
+pipeline {
+  agent any
+
+  options {
+    timestamps()
+    disableConcurrentBuilds()
+  }
+
+  environment {
+    DEPLOY_HOST = 'skyrider.example.internal'
+    DEPLOY_USER = 'skyrider-deploy'
+    DEPLOY_PATH = '/opt/skyrider'
+    SERVICE_NAME = 'skyrider.service'
+  }
+
+  stages {
+    stage('Install') {
+      steps { sh 'npm ci' }
+    }
+
+    stage('Validate') {
+      steps {
+        sh 'npm run lint'
+        sh 'npm run test'
+        sh 'npx playwright install chromium'
+        sh 'npm run test:e2e'
+        sh 'npm run build'
+        sh 'test -f dist/index.html'
+      }
+    }
+
+    stage('Deploy validated build') {
+      steps {
+        withCredentials([
+          sshUserPrivateKey(credentialsId: 'skyrider-deploy-key', keyFileVariable: 'SSH_KEY'),
+          file(credentialsId: 'skyrider-known-hosts', variable: 'KNOWN_HOSTS')
+        ]) {
+          sh '''#!/usr/bin/env bash
+            set -euo pipefail
+            SSH_ARGS="-i $SSH_KEY -o UserKnownHostsFile=$KNOWN_HOSTS -o StrictHostKeyChecking=yes"
+
+            ssh $SSH_ARGS "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$DEPLOY_PATH/dist' '$DEPLOY_PATH/server'"
+            rsync -az --delete -e "ssh $SSH_ARGS" dist/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/dist/"
+            rsync -az --delete -e "ssh $SSH_ARGS" server/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/server/"
+            rsync -az -e "ssh $SSH_ARGS" package.json package-lock.json "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
+
+            ssh $SSH_ARGS "$DEPLOY_USER@$DEPLOY_HOST" \
+              "sudo systemctl restart '$SERVICE_NAME' && curl -fsS --retry 20 --retry-delay 1 --retry-connrefused http://127.0.0.1:3333/api/health >/dev/null"
+          '''
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+[Unit]
+Description=Skyrider Spotify dashboard
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=skyrider
+Group=skyrider
+WorkingDirectory=/opt/skyrider
+EnvironmentFile=/etc/skyrider/skyrider.env
+ExecStart=/usr/bin/node server/app.mjs
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=30s
+UMask=0077
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/skyrider
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictRealtime=true
+
+[Install]
+WantedBy=multi-user.target

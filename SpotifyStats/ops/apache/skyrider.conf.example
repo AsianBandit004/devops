@@ -1,0 +1,19 @@
+<VirtualHost *:80>
+  ServerName skyrider.example.com
+  Redirect permanent / https://skyrider.example.com/
+</VirtualHost>
+
+<IfModule mod_ssl.c>
+<VirtualHost *:443>
+  ServerName skyrider.example.com
+  SSLEngine on
+  # Integrate certificate paths with the host's existing TLS management.
+
+  ProxyPreserveHost On
+  ProxyPass / http://127.0.0.1:3333/
+  ProxyPassReverse / http://127.0.0.1:3333/
+  RequestHeader set X-Forwarded-Proto "https"
+
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</VirtualHost>
+</IfModule>
