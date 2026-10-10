@@ -1,6 +1,5 @@
 # Server Performance Stats 
 
-# https://roadmap.sh/projects/server-stats
 
 A simple Bash script that displays basic performance statistics for a Linux
 server.
@@ -63,3 +62,5 @@ The exact values and available system information will depend on the server.
 - Memory usage includes memory that Linux can reclaim from cache.
 - RAM-backed filesystems are excluded from disk totals when supported.
 - Failed login information may require permission to read `/var/log/btmp`.
+
+This project is apart of roadmap.sh
