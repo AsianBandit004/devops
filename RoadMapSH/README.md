@@ -1,6 +1,6 @@
 # Server Performance Stats 
 
-https://roadmap.sh/projects/server-stats
+# https://roadmap.sh/projects/server-stats
 
 A simple Bash script that displays basic performance statistics for a Linux
 server.
