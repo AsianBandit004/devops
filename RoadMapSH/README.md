@@ -63,4 +63,4 @@ The exact values and available system information will depend on the server.
 - RAM-backed filesystems are excluded from disk totals when supported.
 - Failed login information may require permission to read `/var/log/btmp`.
 
-This project is apart of roadmap.sh
+This project is a part of https://roadmap.sh/projects/server-stats
